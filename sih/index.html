@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="V2V Rescue Link - Network-Independent Vehicle-to-Vehicle Communication and Emergency Warning System for Hackathons and Smart Transportation Safety.">
+  <title>V2V RESCUE LINK | Network-Independent Vehicle-to-Vehicle Safety System</title>
+  
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/simulation.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Top System Header -->
+  <header class="app-header">
+    <div class="header-top-bar">
+      <div class="brand-section">
+        <div class="brand-logo-icon">V2V</div>
+        <div class="brand-titles">
+          <h1>V2V <span>RESCUE LINK</span></h1>
+          <p>Network-Independent Vehicle-to-Vehicle Communication & Emergency Warning System</p>
+        </div>
+      </div>
+
+      <div class="header-status-strip">
+        <span id="offlineModeGlobalStatus" class="badge-offline-on">
+          🟢 OFFLINE DEMO MODE: Internet: DISCONNECTED | V2V SIMULATION: ACTIVE
+        </span>
+      </div>
+
+      <div class="header-actions">
+        <button id="offlineModeSwitch" class="btn-header-tool active" title="Toggle Network Independence Simulation">
+          <span>📶</span> Mode: Offline P2P
+        </button>
+        <button id="btnAudioToggle" class="btn-header-tool" title="Audio Alarm Synthesizer">
+          <span>🔊</span> Audio: Active
+        </button>
+        <button class="btn-primary btn-launch-demo" style="padding: 5px 12px; font-size: 0.75rem;">
+          <span>▶</span> Run Demo Scenario
+        </button>
+      </div>
+    </div>
+
+    <!-- Navigation Bar (Feature 24) -->
+    <nav class="primary-nav-bar">
+      <button class="mobile-menu-btn" id="mobileMenuToggle" aria-label="Toggle Menu">☰</button>
+      <ul class="nav-links" id="primaryNav">
+        <li><a class="nav-link active" data-target="viewHome">Home</a></li>
+        <li><a class="nav-link" data-target="viewDashboard">Live Dashboard</a></li>
+        <li><a class="nav-link" data-target="viewSimulation">V2V Simulation</a></li>
+        <li><a class="nav-link" data-target="viewEmergency">Emergency Alerts</a></li>
+        <li><a class="nav-link" data-target="viewDisaster">Disaster Detection</a></li>
+        <li><a class="nav-link" data-target="viewMultiHop">Multi-Hop & Protocols</a></li>
+        <li><a class="nav-link" data-target="viewRoute">Route Warning & Radar</a></li>
+        <li><a class="nav-link" data-target="viewTechnology">Technology Architecture</a></li>
+        <li><a class="nav-link" data-target="viewAbout">Comparison & About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Core App Views Container -->
+  <main class="app-container">
+
+    <!-- =============================================================
+         1. HOME / LANDING PAGE VIEW
+         ============================================================= -->
+    <section id="viewHome" class="app-view active">
+      <div class="hero-section">
+        <div class="hero-badge">⚡ NEXT-GEN AUTOMOTIVE AD-HOC MESH PLATFORM</div>
+        <h1 class="hero-title">V2V RESCUE LINK</h1>
+        <h2 class="hero-subtitle">“Communicate. Warn. Rescue. Without Internet.”</h2>
+        <p class="hero-desc">
+          A resilient, zero-infrastructure vehicle-to-vehicle safety network that empowers nearby cars to exchange emergency telemetry, detect disasters, and relay hazard warnings through peer-to-peer Wi-Fi Aware & Bluetooth 5.4 Mesh—even during cellular blackouts, tunnel collapses, and remote highway emergencies.
+        </p>
+
+        <div class="hero-cta-group">
+          <button class="btn-primary" data-navigate="viewDashboard">
+            <span>🚀</span> Launch Dashboard
+          </button>
+          <button class="btn-secondary" data-navigate="viewSimulation">
+            <span>📡</span> Start V2V Simulation
+          </button>
+          <button class="btn-primary btn-launch-demo" style="background: linear-gradient(135deg, #a855f7, #6366f1); box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);">
+            <span>▶</span> Run Hackathon Demo Scenario
+          </button>
+          <button class="btn-secondary" data-navigate="viewTechnology">
+            <span>🔬</span> Explore Features & Tech
+          </button>
+        </div>
+
+        <!-- Animated Road Teaser on Landing Page -->
+        <div class="hero-canvas-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 0.75rem; font-family: var(--font-mono); color: var(--accent-cyan);">
+            <span>● LIVE ROAD TRAFFIC & PEER RF PROPAGATION</span>
+            <span>DIRECT PEER-TO-PEER BEAM ACTIVE</span>
+          </div>
+          <canvas id="landingHeroCanvas"></canvas>
+        </div>
+
+        <!-- Key Innovation Callout: NO INTERNET REQUIRED (Feature 3) -->
+        <div class="no-internet-banner">
+          <div>
+            <h3 style="font-family: var(--font-display); font-size: 1.15rem; color: #fff; margin-bottom: 4px;">
+              🛡️ 100% NETWORK-INDEPENDENT SAFETY ARCHITECTURE
+            </h3>
+            <p style="font-size: 0.85rem; color: #cbd5e1; max-width: 800px;">
+              Traditional safety apps like Google Maps and Waze fail when cellular towers lose power during earthquakes, storms, or remote mountain passes. <strong>V2V Rescue Link communicates directly car-to-car</strong> using short-range radio signals.
+            </p>
+            <div class="no-internet-grid">
+              <div class="no-internet-item neg">INTERNET REQUIRED: ❌ NO</div>
+              <div class="no-internet-item neg">MOBILE NETWORK REQUIRED: ❌ NO</div>
+              <div class="no-internet-item neg">CLOUD SERVER REQUIRED: ❌ NO</div>
+              <div class="no-internet-item pos">DIRECT V2V COMMUNICATION: ✅ ACTIVE</div>
+            </div>
+          </div>
+          <div>
+            <button class="btn-secondary" data-navigate="viewMultiHop" style="white-space: nowrap;">
+              How P2P Works →
+            </button>
+          </div>
+        </div>
+
+        <!-- Metric Badges -->
+        <div class="hero-metrics-grid">
+          <div class="metric-highlight-card">
+            <div class="metric-highlight-val">&lt; 14 ms</div>
+            <div class="metric-highlight-label">Peer-to-Peer Latency</div>
+            <div class="metric-highlight-sub">Direct Wi-Fi Aware NAN / BLE 5.4 broadcast without base-station turnaround.</div>
+          </div>
+          <div class="metric-highlight-card">
+            <div class="metric-highlight-val">300 m</div>
+            <div class="metric-highlight-label">Direct Line-of-Sight Range</div>
+            <div class="metric-highlight-sub">Per-hop transmission radius expandable indefinitely via ad-hoc multi-hop repeats.</div>
+          </div>
+          <div class="metric-highlight-card">
+            <div class="metric-highlight-val">0% Cloud</div>
+            <div class="metric-highlight-label">Zero Cloud Dependency</div>
+            <div class="metric-highlight-sub">Operates seamlessly in blackout disaster zones, wilderness roads & tunnels.</div>
+          </div>
+          <div class="metric-highlight-card">
+            <div class="metric-highlight-val">100% Offline</div>
+            <div class="metric-highlight-label">Local Edge Processing</div>
+            <div class="metric-highlight-sub">Decentralized threat evaluation runs on vehicle OBU microcontrollers.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =============================================================
+         2. LIVE V2V DASHBOARD VIEW (Features 2, 9, 13, 14, 16)
+         ============================================================= -->
+    <section id="viewDashboard" class="app-view">
+      <!-- Collision Warning Banner (Feature 9) -->
+      <div id="collisionWarningBanner" class="collision-banner hidden">
+        <div class="collision-banner-header">
+          <div class="collision-banner-title">
+            <span>🚨</span> FORWARD COLLISION WARNING (TTC ALERT)
+          </div>
+          <span class="status-chip status-emergency" id="colRisk">HIGH</span>
+        </div>
+        <div class="collision-stats-row">
+          <div class="peer-metric">
+            <span class="metric-label">TARGET VEHICLE</span>
+            <span class="metric-val" id="colTargetVehicle">V02</span>
+          </div>
+          <div class="peer-metric">
+            <span class="metric-label">DISTANCE</span>
+            <span class="metric-val val-danger" id="colDistance">7 m</span>
+          </div>
+          <div class="peer-metric">
+            <span class="metric-label">RELATIVE SPEED</span>
+            <span class="metric-val" id="colSpeed">65 km/h</span>
+          </div>
+          <div class="peer-metric">
+            <span class="metric-label">TIME TO COLLISION (TTC)</span>
+            <span class="metric-val val-danger" id="colTtc">1.8s</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live V2V Connection Mesh Banner (Feature 2) -->
+      <div class="v2v-chain-banner">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 1.2rem;">📡</span>
+          <div>
+            <div style="font-size: 0.7rem; color: var(--text-secondary); font-family: var(--font-mono);">
+              ACTIVE DIRECT MESH TOPOLOGY
+            </div>
+            <div class="v2v-chain-nodes" id="v2vLinkChainDisplay">
+              <strong>V01</strong> <span class="mesh-arrow">↔</span> <strong>V02</strong> <span class="mesh-arrow">↔</span> <strong>V03</strong> <span class="mesh-arrow">↔</span> <strong>V04</strong>
+            </div>
+          </div>
+        </div>
+        <span class="badge-offline-on" style="font-size: 0.8rem;">
+          DIRECT V2V CONNECTION ACTIVE
+        </span>
+      </div>
+
+      <!-- Cockpit & Instruments Grid -->
+      <div class="dashboard-grid">
+        <!-- Left: Driver Telemetry & Cockpit Instruments -->
+        <div class="cockpit-instrument-panel">
+          <!-- Primary Speedometer & Identity -->
+          <div class="digital-gauge-card">
+            <div style="font-size: 0.72rem; color: var(--accent-cyan); font-family: var(--font-mono); letter-spacing: 1px;">
+              MY VEHICLE ID: <strong id="hudVehicleId" style="color: #fff; font-size: 0.9rem;">V01 (Titan Lead)</strong>
+            </div>
+            <div class="speed-readout">
+              <div class="speed-val" id="hudSpeedVal">72</div>
+              <div class="speed-unit">KM / H &nbsp;•&nbsp; TELEMETRY ACTIVE</div>
+            </div>
+            <div class="vehicle-status-badge-row">
+              <span class="status-chip status-safe" id="hudSafetyStatus">SAFE</span>
+              <span class="status-chip" style="background: rgba(0, 240, 255, 0.15); border: 1px solid var(--accent-cyan); color: var(--accent-cyan);">
+                V2V P2P LINKED
+              </span>
+            </div>
+          </div>
+
+          <!-- Secondary Telemetry Gauges -->
+          <div class="instrument-row">
+            <div class="instrument-tile">
+              <span class="tile-label">Compass Heading</span>
+              <div class="tile-value" id="hudHeadingVal">EAST (088°)</div>
+            </div>
+            <div class="instrument-tile">
+              <span class="tile-label">RF Signal (RSSI)</span>
+              <div class="tile-value text-cyan">-52 dBm (Excellent)</div>
+            </div>
+          </div>
+
+          <!-- Feature 14: Low-Power Operation Card -->
+          <div class="glass-panel" style="padding: 16px;">
+            <div class="panel-header" style="margin-bottom: 8px; padding-bottom: 6px;">
+              <span class="panel-title" style="font-size: 0.82rem;">
+                <span class="icon">🔋</span> LOW-POWER OPERATION
+              </span>
+              <span class="status-chip status-safe" style="font-size: 0.65rem;">ACTIVE</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 4px;">
+              <span style="color: var(--text-secondary);">Vehicle Battery Reserve:</span>
+              <strong id="hudBatteryVal" class="text-cyan">87%</strong>
+            </div>
+            <div class="battery-bar-track">
+              <div id="hudBatteryBar" class="battery-bar-fill"></div>
+            </div>
+            <div style="margin-top: 10px; font-size: 0.72rem; color: var(--text-secondary); line-height: 1.4;">
+              Power Mode: <strong style="color: #fff;">LOW POWER (Adaptive Beaconing)</strong><br>
+              Current Drain: <strong style="color: #fff;">28.4 mA</strong> (10% awake, 90% micro-sleep until wake beacon). Minimizes vehicle battery draw.
+            </div>
+          </div>
+
+          <!-- Quick Braking Trigger -->
+          <button class="btn-danger btn-quick-brake" style="width: 100%; justify-content: center; padding: 12px;">
+            <span>🛑</span> TRIGGER SUDDEN BRAKING (V01)
+          </button>
+        </div>
+
+        <!-- Right: Nearby Vehicles & Continuous Monitoring -->
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <!-- Nearby Vehicles List (Feature 2) -->
+          <div class="glass-panel">
+            <div class="panel-header">
+              <div class="panel-title">
+                <span class="icon">🚗</span> NEARBY VEHICLES CLUSTER (PEER-TO-PEER)
+              </div>
+              <button class="btn-secondary" data-navigate="viewSimulation" style="padding: 4px 10px; font-size: 0.75rem;">
+                View Road Simulation →
+              </button>
+            </div>
+            <div id="nearbyPeersList" class="nearby-peers-list">
+              <!-- Dynamically populated by telemetry.js -->
+            </div>
+          </div>
+
+          <!-- Feature 13: Continuous Monitoring Panel -->
+          <div class="glass-panel">
+            <div class="panel-header">
+              <div class="panel-title">
+                <span class="icon">📊</span> CONTINUOUS SYSTEM MONITORING & TELEMETRY
+              </div>
+              <span style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--status-safe);">● 10Hz REAL-TIME SCAN</span>
+            </div>
+            <div class="hero-metrics-grid" style="margin-top: 0;">
+              <div class="metric-highlight-card">
+                <div class="metric-highlight-val" id="monPeersCount">3</div>
+                <div class="metric-highlight-label">Connected Peers</div>
+                <div class="metric-highlight-sub">Direct RF range vehicles.</div>
+              </div>
+              <div class="metric-highlight-card">
+                <div class="metric-highlight-val" id="monPpsVal">48 pkt/s</div>
+                <div class="metric-highlight-label">Mesh Packet Rate</div>
+                <div class="metric-highlight-sub">Heartbeat and safety frames.</div>
+              </div>
+              <div class="metric-highlight-card">
+                <div class="metric-highlight-val" id="monLatVal">12.4 ms</div>
+                <div class="metric-highlight-label">Average P2P Latency</div>
+                <div class="metric-highlight-sub">Zero cellular tower hop.</div>
+              </div>
+              <div class="metric-highlight-card">
+                <div class="metric-highlight-val" id="monHazardsCount">0</div>
+                <div class="metric-highlight-label">Road Hazards Active</div>
+                <div class="metric-highlight-sub">Corridor obstruction status.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 16: Communication Message Log Console -->
+      <div class="comm-log-console" style="margin-top: 24px;">
+        <div class="comm-log-toolbar">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-family: var(--font-display); font-size: 0.85rem; font-weight: 700; color: #fff;">
+              📟 REAL-TIME V2V PACKET CONSOLE
+            </span>
+            <div class="log-filters">
+              <button class="log-filter-btn active" data-filter="ALL">ALL</button>
+              <button class="log-filter-btn" data-filter="EMERGENCY">EMERGENCY</button>
+              <button class="log-filter-btn" data-filter="RELAY">MULTI-HOP</button>
+              <button class="log-filter-btn" data-filter="BEACON">BEACONS</button>
+            </div>
+          </div>
+          <div>
+            <button id="btnClearLogs" class="btn-header-tool" style="font-size: 0.7rem;">Clear Log</button>
+          </div>
+        </div>
+        <div class="comm-log-table-container">
+          <table class="comm-log-table">
+            <thead>
+              <tr>
+                <th style="width: 100px;">TIME</th>
+                <th style="width: 110px;">SENDER</th>
+                <th style="width: 25px;"></th>
+                <th style="width: 130px;">RECEIVER</th>
+                <th>MESSAGE PAYLOAD</th>
+                <th style="width: 90px;">HOP</th>
+                <th style="width: 110px;">SIGNAL (RSSI)</th>
+              </tr>
+            </thead>
+            <tbody id="commLogTableBody">
+              <!-- Streamed dynamically by state.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =============================================================
+         3. V2V SIMULATION LAB VIEW (Features 18, 19, 8)
+         ============================================================= -->
+    <section id="viewSimulation" class="app-view">
+      <div class="glass-panel" style="padding: 0; overflow: hidden; margin-bottom: 24px;">
+        <!-- Simulation Control Panel Toolbar (Feature 18) -->
+        <div class="sim-controls-toolbar">
+          <div class="sim-btn-group">
+            <button id="btnSimPlayPause" class="btn-sim-action">
+              <span>⏸</span> Pause Sim
+            </button>
+            <button id="btnSimSpeed" class="btn-sim-action">
+              1.0x Speed
+            </button>
+            <button id="btnSimAddVehicle" class="btn-sim-action">
+              <span>➕</span> Add Vehicle
+            </button>
+            <button id="btnSimRemoveVehicle" class="btn-sim-action">
+              <span>➖</span> Remove Vehicle
+            </button>
+            <button id="btnSimReset" class="btn-sim-action">
+              <span>🔄</span> Reset Road
+            </button>
+          </div>
+
+          <div class="sim-btn-group">
+            <button class="btn-danger btn-launch-demo" style="padding: 6px 14px; font-size: 0.78rem;">
+              <span>▶</span> Demo Scenario
+            </button>
+            <button id="btnClearHazards" class="btn-sim-action">
+              <span>🧹</span> Clear Hazards
+            </button>
+          </div>
+        </div>
+
+        <!-- Interactive Highway Canvas (Features 1, 18, 19) -->
+        <div class="simulation-canvas-wrapper">
+          <canvas id="v2vCanvas"></canvas>
+        </div>
+      </div>
+
+      <!-- Guidance instructions for judges/evaluators -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 24px;">
+        <div class="metric-highlight-card">
+          <div class="metric-highlight-label" style="color: var(--accent-cyan);">🖐️ Drag & Drop Interactivity</div>
+          <div class="metric-highlight-sub">
+            Click and drag any vehicle along or across lanes to simulate closing in, testing collision thresholds, and separating nodes out of range.
+          </div>
+        </div>
+        <div class="metric-highlight-card">
+          <div class="metric-highlight-label" style="color: #10b981;">⭕ Communication Radiuses (Feature 19)</div>
+          <div class="metric-highlight-sub">
+            Each vehicle projects a 280m Wi-Fi Direct ring and a 90m BLE field. Watch links establish ("V2V CONNECTION ESTABLISHED") or gracefully drop.
+          </div>
+        </div>
+        <div class="metric-highlight-card">
+          <div class="metric-highlight-label" style="color: #a855f7;">⚡ Animated Data Packets</div>
+          <div class="metric-highlight-sub">
+            Photon pulses show continuous heartbeat exchanges, while high-priority red alert packets visibly traverse links during emergencies.
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =============================================================
+         4. EMERGENCY ALERTS VIEW (Features 7, 9, 10)
+         ============================================================= -->
+    <section id="viewEmergency" class="app-view">
+      <div class="glass-panel" style="margin-bottom: 24px;">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span class="icon">🚨</span> EMERGENCY ALERT DISPATCH SYSTEM
+          </div>
+          <span style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--status-danger);">
+            INSTANT P2P BROADCAST TRIGGER
+          </span>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 16px;">
+          Select an incident to simulate real-world critical vehicle events. The user's vehicle (V01) will immediately generate an ad-hoc safety frame and broadcast it directly to neighboring vehicles, with audio synthesizer alarms.
+        </p>
+
+        <!-- Emergency Trigger Buttons (Feature 7) -->
+        <div class="emergency-triggers-grid">
+          <button id="btnTriggerAccident" class="btn-trigger-hazard">
+            <span style="font-size: 1.6rem;">💥</span>
+            <div>
+              <div>ACCIDENT / CRASH</div>
+              <small style="color: var(--text-secondary); font-size: 0.7rem;">Airbag & IMU Trigger</small>
+            </div>
+          </button>
+
+          <button id="btnTriggerBrake" class="btn-trigger-hazard">
+            <span style="font-size: 1.6rem;">🛑</span>
+            <div>
+              <div>EMERGENCY BRAKING</div>
+              <small style="color: var(--text-secondary); font-size: 0.7rem;">EEBL Hard Stop (-8.4m/s²)</small>
+            </div>
+          </button>
+
+          <button id="btnTriggerBreakdown" class="btn-trigger-hazard">
+            <span style="font-size: 1.6rem;">⚠️</span>
+            <div>
+              <div>VEHICLE BREAKDOWN</div>
+              <small style="color: var(--text-secondary); font-size: 0.7rem;">Engine Stall / Flat Tire</small>
+            </div>
+          </button>
+
+          <button id="btnTriggerMedical" class="btn-trigger-hazard">
+            <span style="font-size: 1.6rem;">🚑</span>
+            <div>
+              <div>MEDICAL EMERGENCY</div>
+              <small style="color: var(--text-secondary); font-size: 0.7rem;">Driver Incapacitation SOS</small>
+            </div>
+          </button>
+
+          <button id="btnTriggerFire" class="btn-trigger-hazard">
+            <span style="font-size: 1.6rem;">🔥</span>
+            <div>
+              <div>FIRE / HAZMAT</div>
+              <small style="color: var(--text-secondary); font-size: 0.7rem;">EV Thermal Runaway</small>
+            </div>
+          </button>
+
+          <button id="btnTriggerHazard" class="btn-trigger-hazard">
+            <span style="font-size: 1.6rem;">🚧</span>
+            <div>
+              <div>ROAD HAZARD</div>
+              <small style="color: var(--text-secondary); font-size: 0.7rem;">Debris / Lost Cargo</small>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Electronic Emergency Brake Light (EEBL) Deep-Dive (Feature 10) -->
+      <div class="glass-panel">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span class="icon">🛑</span> EMERGENCY BRAKING WARNING (EEBL PROTOCOL)
+          </div>
+          <span class="status-chip status-warning">SAFETY PROTOCOL</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+          <div>
+            <h4 style="color: #fff; margin-bottom: 8px;">The Problem with Human Reaction Times</h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+              When a lead car brakes violently, trailing drivers experience a 1.2 to 1.8 second delay in seeing taillights, processing danger, and depressing their pedal. On high-speed motorways, this leads to fatal multi-car chain collisions.
+            </p>
+          </div>
+          <div>
+            <h4 style="color: var(--accent-cyan); margin-bottom: 8px;">The V2V Rescue Link Solution</h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+              V01 transmits an <strong>EEBL packet in &lt;3 milliseconds</strong> via Bluetooth 5.4 / Wi-Fi Direct directly to V02, V03, and V04. The trailing cars' dashboards sound audio alarms and pre-charge braking calipers before the human eye even registers the physical brake lights!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =============================================================
+         5. DISASTER DETECTION VIEW (Feature 6)
+         ============================================================= -->
+    <section id="viewDisaster" class="app-view">
+      <div class="glass-panel" style="margin-bottom: 24px;">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span class="icon">⚠️</span> ENVIRONMENTAL DISASTER DETECTION & BROADCAST
+          </div>
+          <span style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--accent-cyan);">
+            ZERO-CELLULAR EMERGENCY FAN-OUT
+          </span>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 12px;">
+          In major disasters, cell towers collapse or lose grid power. V2V Rescue Link vehicles autonomously identify road hazards using local radar/vision sensors and broadcast warning payloads to every oncoming vehicle.
+        </p>
+
+        <!-- Disaster Catalog (Feature 6) -->
+        <div class="disasters-catalog-grid">
+          <div class="disaster-card" data-disaster="flood">
+            <div>
+              <div class="disaster-card-header">
+                <span class="disaster-icon">🌊</span>
+                <div>
+                  <div class="disaster-title">FLASH FLOOD</div>
+                  <span class="status-chip status-danger" style="font-size: 0.65rem;">HIGH SEVERITY</span>
+                </div>
+              </div>
+              <p class="disaster-desc">40cm+ water depth ahead. Severe hydroplaning risk.</p>
+            </div>
+            <button class="btn-danger" style="width: 100%; justify-content: center; font-size: 0.75rem;">
+              Simulate Flood Detection
+            </button>
+          </div>
+
+          <div class="disaster-card" data-disaster="landslide">
+            <div>
+              <div class="disaster-card-header">
+                <span class="disaster-icon">⛰️</span>
+                <div>
+                  <div class="disaster-title">LANDSLIDE / ROCKFALL</div>
+                  <span class="status-chip status-danger" style="font-size: 0.65rem;">CRITICAL</span>
+                </div>
+              </div>
+              <p class="disaster-desc">Boulders & mud block carriageway 520m ahead.</p>
+            </div>
+            <button class="btn-danger" style="width: 100%; justify-content: center; font-size: 0.75rem;">
+              Simulate Landslide
+            </button>
+          </div>
+
+          <div class="disaster-card" data-disaster="earthquake">
+            <div>
+              <div class="disaster-card-header">
+                <span class="disaster-icon">⚡</span>
+                <div>
+                  <div class="disaster-title">EARTHQUAKE DAMAGE</div>
+                  <span class="status-chip status-danger" style="font-size: 0.65rem;">CRITICAL</span>
+                </div>
+              </div>
+              <p class="disaster-desc">Overpass fissure detected at Marker KM-82.</p>
+            </div>
+            <button class="btn-danger" style="width: 100%; justify-content: center; font-size: 0.75rem;">
+              Simulate Earthquake
+            </button>
+          </div>
+
+          <div class="disaster-card" data-disaster="road_block">
+            <div>
+              <div class="disaster-card-header">
+                <span class="disaster-icon">🚧</span>
+                <div>
+                  <div class="disaster-title">ROAD BLOCKAGE</div>
+                  <span class="status-chip status-warning" style="font-size: 0.65rem;">HIGH</span>
+                </div>
+              </div>
+              <p class="disaster-desc">Barrier breach & overturned cargo container.</p>
+            </div>
+            <button class="btn-danger" style="width: 100%; justify-content: center; font-size: 0.75rem;">
+              Simulate Road Block
+            </button>
+          </div>
+
+          <div class="disaster-card" data-disaster="fallen_tree">
+            <div>
+              <div class="disaster-card-header">
+                <span class="disaster-icon">🌲</span>
+                <div>
+                  <div class="disaster-title">FALLEN TREE</div>
+                  <span class="status-chip status-warning" style="font-size: 0.65rem;">MODERATE</span>
+                </div>
+              </div>
+              <p class="disaster-desc">Downed trunk across right lane from high winds.</p>
+            </div>
+            <button class="btn-danger" style="width: 100%; justify-content: center; font-size: 0.75rem;">
+              Simulate Fallen Tree
+            </button>
+          </div>
+
+          <div class="disaster-card" data-disaster="major_accident">
+            <div>
+              <div class="disaster-card-header">
+                <span class="disaster-icon">💥</span>
+                <div>
+                  <div class="disaster-title">MAJOR PILEUP</div>
+                  <span class="status-chip status-danger" style="font-size: 0.65rem;">CRITICAL</span>
+                </div>
+              </div>
+              <p class="disaster-desc">3-vehicle crash with fuel spill. Highway impassable.</p>
+            </div>
+            <button class="btn-danger" style="width: 100%; justify-content: center; font-size: 0.75rem;">
+              Simulate Pileup
+            </button>
+          </div>
+
+          <div class="disaster-card" data-disaster="fire">
+            <div>
+              <div class="disaster-card-header">
+                <span class="disaster-icon">🔥</span>
+                <div>
+                  <div class="disaster-title">WILDFIRE / SMOKE</div>
+                  <span class="status-chip status-danger" style="font-size: 0.65rem;">HIGH</span>
+                </div>
+              </div>
+              <p class="disaster-desc">Zero visibility plume & intense heat corridor.</p>
+            </div>
+            <button class="btn-danger" style="width: 100%; justify-content: center; font-size: 0.75rem;">
+              Simulate Wildfire
+            </button>
+          </div>
+
+          <div class="disaster-card" data-disaster="black_ice">
+            <div>
+              <div class="disaster-card-header">
+                <span class="disaster-icon">❄️</span>
+                <div>
+                  <div class="disaster-title">BLACK ICE / OIL</div>
+                  <span class="status-chip status-warning" style="font-size: 0.65rem;">HIGH</span>
+                </div>
+              </div>
+              <p class="disaster-desc">Friction coefficient &lt; 0.15. Extreme skid risk.</p>
+            </div>
+            <button class="btn-danger" style="width: 100%; justify-content: center; font-size: 0.75rem;">
+              Simulate Black Ice
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =============================================================
+         6. MULTI-HOP & WIRELESS PROTOCOLS (Features 8, 4, 5)
+         ============================================================= -->
+    <section id="viewMultiHop" class="app-view">
+      <!-- Feature 8: Multi-Hop Communication Relay -->
+      <div class="glass-panel" style="margin-bottom: 24px;">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span class="icon">📡</span> MULTI-HOP MESSAGE RELAY ACTIVE (AD-HOC MESH)
+          </div>
+          <span id="multihopStatusBadge" class="badge-offline-on">READY TO RELAY</span>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 20px;">
+          When vehicle <strong>V01</strong> detects an accident, it may not have direct RF range to reach trailing vehicle <strong>V04</strong>. Intermediate nodes <strong>V02</strong> and <strong>V03</strong> automatically act as mesh repeaters, re-broadcasting the signed safety frame without any cellular towers!
+        </p>
+
+        <!-- Pipeline Step Cards -->
+        <div class="multihop-pipeline-container">
+          <div id="relayStepNode1" class="relay-step-card">
+            <div class="relay-node-badge" style="color: var(--accent-cyan);">V01</div>
+            <div class="relay-node-role">Origin Detector</div>
+            <div style="font-size: 0.75rem; color: #fff; margin-bottom: 6px;">Detects Incident</div>
+            <div class="relay-node-latency">0 ms (Origin)</div>
+          </div>
+
+          <div class="relay-connector-arrow">→</div>
+
+          <div id="relayStepNode2" class="relay-step-card">
+            <div class="relay-node-badge" style="color: #3b82f6;">V02</div>
+            <div class="relay-node-role">Intermediate Relay 1</div>
+            <div style="font-size: 0.75rem; color: #fff; margin-bottom: 6px;">Receives &amp; Forwards</div>
+            <div class="relay-node-latency step-time">+14 ms</div>
+          </div>
+
+          <div class="relay-connector-arrow">→</div>
+
+          <div id="relayStepNode3" class="relay-step-card">
+            <div class="relay-node-badge" style="color: #a855f7;">V03</div>
+            <div class="relay-node-role">Intermediate Relay 2</div>
+            <div style="font-size: 0.75rem; color: #fff; margin-bottom: 6px;">Receives &amp; Forwards</div>
+            <div class="relay-node-latency step-time">+28 ms</div>
+          </div>
+
+          <div class="relay-connector-arrow">→</div>
+
+          <div id="relayStepNode4" class="relay-step-card">
+            <div class="relay-node-badge" style="color: #10b981;">V04</div>
+            <div class="relay-node-role">Destination Node</div>
+            <div style="font-size: 0.75rem; color: #fff; margin-bottom: 6px;">Emergency Warning Displayed</div>
+            <div class="relay-node-latency step-time">+42 ms</div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 10px;">
+          <button id="btnTriggerMultiHop" class="btn-primary">
+            <span>⚡</span> Trigger Multi-Hop Relay Test
+          </button>
+        </div>
+      </div>
+
+      <!-- Features 4 & 5: Dual Protocol Specs (Bluetooth vs Wi-Fi Direct / Aware) -->
+      <div class="protocol-spec-grid">
+        <!-- Feature 4: Bluetooth Section -->
+        <div class="protocol-card">
+          <span class="protocol-badge badge-ble">BLUETOOTH 5.4 LOW ENERGY &amp; CODED PHY</span>
+          <h3 style="font-family: var(--font-display); font-size: 1.1rem; color: #fff; margin-bottom: 6px;">
+            Short-Range Low-Power Link
+          </h3>
+          <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5;">
+            Optimized for ultra-low latency (&lt;3ms) immediate brake warnings, blind spot detection, and continuous discovery beacons with minimal battery consumption.
+          </p>
+          <ul class="spec-list">
+            <li><span>Bluetooth Status:</span> <strong class="text-safe">ACTIVE &amp; SCANNING</strong></li>
+            <li><span>Pairing Requirement:</span> <strong>Zero-Touch (Connectionless Advertising)</strong></li>
+            <li><span>Range (Standard LE):</span> <strong>90 - 100 meters</strong></li>
+            <li><span>Range (Coded PHY S=8):</span> <strong>Up to 300 meters</strong></li>
+            <li><span>Braking Alert Delay:</span> <strong class="text-cyan">2.8 milliseconds</strong></li>
+          </ul>
+        </div>
+
+        <!-- Feature 5: Wi-Fi Direct / Aware Section -->
+        <div class="protocol-card">
+          <span class="protocol-badge badge-wifi">WI-FI DIRECT / WI-FI AWARE (NAN)</span>
+          <h3 style="font-family: var(--font-display); font-size: 1.1rem; color: #fff; margin-bottom: 6px;">
+            High-Throughput P2P Data Pipe
+          </h3>
+          <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5;">
+            Forms ad-hoc clusters without any wireless AP router. Transmits rich telemetry, disaster map coordinate payloads, and multi-hop forward tables.
+          </p>
+          <ul class="spec-list">
+            <li><span>Wi-Fi Direct Status:</span> <strong class="text-safe">ACTIVE (NAN Channel 6)</strong></li>
+            <li><span>Internet Dependency:</span> <strong class="text-safe">NOT REQUIRED (P2P)</strong></li>
+            <li><span>Connection Mode:</span> <strong>Direct Peer-to-Peer Cluster</strong></li>
+            <li><span>Bandwidth:</span> <strong>54 - 250 Mbps</strong></li>
+            <li><span>Packet Loss (500m):</span> <strong>&lt; 0.2% with multi-hop repeat</strong></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =============================================================
+         7. ALTERNATE ROUTE & BLIND SPOT RADAR (Features 11, 12)
+         ============================================================= -->
+    <section id="viewRoute" class="app-view">
+      <div class="route-analysis-grid">
+        <!-- Feature 12: Alternate-Route Warning Map -->
+        <div class="glass-panel" style="padding: 20px;">
+          <div class="panel-header">
+            <div class="panel-title">
+              <span class="icon">🔄</span> OFFLINE HAZARD DETOUR &amp; ALTERNATE ROUTE ENGINE
+            </div>
+            <span class="status-chip status-safe">LOCAL COMPUTATION</span>
+          </div>
+          <div class="detour-canvas-wrapper">
+            <canvas id="detourMapCanvas"></canvas>
+          </div>
+        </div>
+
+        <!-- Detour Comparison & Route Metadata -->
+        <div class="route-meta-card">
+          <div>
+            <h3 style="font-family: var(--font-display); font-size: 1rem; color: #fff; margin-bottom: 12px;">
+              Route Evaluation Matrix
+            </h3>
+            
+            <div style="background: rgba(239, 68, 68, 0.1); border-left: 3px solid #ef4444; padding: 10px; border-radius: 4px; margin-bottom: 12px;">
+              <div style="font-size: 0.72rem; color: #ff859d; font-weight: 700;">PRIMARY CORRIDOR (NH-48)</div>
+              <div style="font-size: 0.82rem; color: #fff; margin-top: 2px;">STATUS: <strong>BLOCKED AHEAD</strong></div>
+              <div style="font-size: 0.72rem; color: var(--text-secondary);">Accident &amp; debris reported via V2V</div>
+            </div>
+
+            <div style="background: rgba(16, 185, 129, 0.1); border-left: 3px solid #10b981; padding: 10px; border-radius: 4px; margin-bottom: 16px;">
+              <div style="font-size: 0.72rem; color: #6ee7b7; font-weight: 700;">OFFLINE DETOUR (ROUTE B)</div>
+              <div style="font-size: 0.82rem; color: #fff; margin-top: 2px;">STATUS: <strong>RECOMMENDED BY PEERS</strong></div>
+              <div style="font-size: 0.72rem; color: var(--text-secondary);">West Mountain Bypass (+4m ETA, +2.8km)</div>
+            </div>
+
+            <div style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.5;">
+              Peer vehicles approaching from opposite direction confirmed Route B clear of hazards 2 mins ago via ad-hoc beacon exchange.
+            </div>
+          </div>
+
+          <button class="btn-primary" style="width: 100%; justify-content: center; margin-top: 14px;" onclick="window.v2vApp.routeEngine.setDetourAccepted(true); showToast('Alternate Route B uploaded to Driver HUD.');">
+            <span>🗺️</span> Accept &amp; Divert Convoy
+          </button>
+        </div>
+      </div>
+
+      <!-- Feature 11: Blind-Spot 360 Radar -->
+      <div class="glass-panel" style="margin-top: 24px;">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span class="icon">👁️</span> 360° BLIND-SPOT WARNING SYSTEM (BSW SENSOR RADAR)
+          </div>
+          <div id="blindSpotStatusText" style="font-family: var(--font-mono); font-size: 0.75rem;">
+            <span class="text-safe">✓ BLIND SPOTS CLEAR (360° SENSOR ACTIVE)</span>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 280px 1fr; gap: 24px; align-items: center;">
+          <div class="blind-spot-container">
+            <div class="blind-spot-canvas-wrapper">
+              <canvas id="blindSpotRadarCanvas"></canvas>
+              <!-- Left & Right Mirror Warning Lamps -->
+              <div id="blindSpotLeftIndicator" class="blind-spot-wing-indicator wing-left" title="Left Blind Spot Mirror Lamp"></div>
+              <div id="blindSpotRightIndicator" class="blind-spot-wing-indicator wing-right" title="Right Blind Spot Mirror Lamp"></div>
+            </div>
+            <span style="font-size: 0.72rem; color: var(--text-secondary);">
+              Left &amp; Right Visual Wing Mirror Indicators
+            </span>
+          </div>
+
+          <div>
+            <h4 style="color: #fff; margin-bottom: 8px;">Continuous Adjacent Lane Awareness</h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px;">
+              When another vehicle enters your left or right blind spot zones (longitudinal offset -70 to +40 px, lateral distance &lt; 4.5m), the system illuminates the corresponding wing mirror amber/red LEDs and emits a high-frequency proximity warning.
+            </p>
+            <div style="background: rgba(13, 22, 40, 0.8); border: 1px solid rgba(255, 255, 255, 0.08); padding: 12px 16px; border-radius: var(--radius-md);">
+              <span style="font-size: 0.75rem; color: var(--accent-cyan); font-weight: 700;">💡 INTERACTIVE TIP:</span>
+              <p style="font-size: 0.78rem; color: #cbd5e1; margin-top: 4px;">
+                Switch to the <strong>V2V Simulation</strong> tab and drag <strong>Vehicle V02</strong> or <strong>V03</strong> right alongside <strong>V01</strong> to see the real-time blind spot radar illuminate instantly!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =============================================================
+         8. TECHNOLOGY ARCHITECTURE & REAL HARDWARE (Features 20, 21, 15)
+         ============================================================= -->
+    <section id="viewTechnology" class="app-view">
+      <!-- Feature 20: Technology Architecture Pipeline -->
+      <div class="glass-panel" style="margin-bottom: 24px;">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span class="icon">🔬</span> END-TO-END TECHNOLOGY ARCHITECTURE
+          </div>
+          <span class="status-chip status-safe">ZERO-CLOUD PIPELINE</span>
+        </div>
+
+        <div class="arch-diagram-flow">
+          <div class="arch-node-box">
+            <div class="arch-node-icon">📡</div>
+            <div class="arch-node-title">Vehicle Sensors</div>
+            <div class="arch-node-desc">IMU, Speed, Brake, Radar</div>
+          </div>
+          <div class="arch-flow-arrow">➔</div>
+          <div class="arch-node-box">
+            <div class="arch-node-icon">🛰️</div>
+            <div class="arch-node-title">GPS / Location</div>
+            <div class="arch-node-desc">Coordinate &amp; Velocity Fix</div>
+          </div>
+          <div class="arch-flow-arrow">➔</div>
+          <div class="arch-node-box">
+            <div class="arch-node-icon">📻</div>
+            <div class="arch-node-title">Wireless Module</div>
+            <div class="arch-node-desc">Wi-Fi Aware &amp; BLE 5.4</div>
+          </div>
+          <div class="arch-flow-arrow">➔</div>
+          <div class="arch-node-box" style="border-color: var(--accent-cyan); background: rgba(0, 240, 255, 0.08);">
+            <div class="arch-node-icon">⚡</div>
+            <div class="arch-node-title">Direct V2V</div>
+            <div class="arch-node-desc">Peer-to-Peer Ad-Hoc</div>
+          </div>
+          <div class="arch-flow-arrow">➔</div>
+          <div class="arch-node-box">
+            <div class="arch-node-icon">🚗</div>
+            <div class="arch-node-title">Nearby Vehicles</div>
+            <div class="arch-node-desc">Ad-Hoc Mesh Neighborhood</div>
+          </div>
+          <div class="arch-flow-arrow">➔</div>
+          <div class="arch-node-box">
+            <div class="arch-node-icon">🧠</div>
+            <div class="arch-node-title">Emergency Analysis</div>
+            <div class="arch-node-desc">Edge TTC &amp; Threat Logic</div>
+          </div>
+          <div class="arch-flow-arrow">➔</div>
+          <div class="arch-node-box" style="border-color: var(--status-danger); background: rgba(255, 42, 95, 0.08);">
+            <div class="arch-node-icon">🚨</div>
+            <div class="arch-node-title">Driver HUD Alert</div>
+            <div class="arch-node-desc">Audio-Visual Warning</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 21: Real-World Hardware Implementation Guide -->
+      <div class="glass-panel" style="margin-bottom: 24px;">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span class="icon">🔌</span> PHYSICAL HARDWARE IMPLEMENTATION (BILL OF MATERIALS)
+          </div>
+          <span class="status-chip status-warning">PROTOTYPE HARDWARE DESIGN</span>
+        </div>
+
+        <div style="background: rgba(13, 22, 40, 0.7); border-left: 4px solid var(--accent-cyan); padding: 14px 18px; border-radius: var(--radius-sm); margin-bottom: 20px;">
+          <h4 style="color: #fff; font-size: 0.9rem; margin-bottom: 4px;">Web Prototype vs Real Hardware Implementation</h4>
+          <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5;">
+            This browser application represents the <strong>Interactive Web Prototype Simulation</strong> of our system. In a production vehicle deployment, the algorithms run on dedicated embedded microcontrollers connected to the car's 12V OBD-II / CAN-Bus system.
+          </p>
+        </div>
+
+        <div class="hardware-bom-grid">
+          <div class="hardware-component-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <strong style="color: #fff;">ESP32-S3 Dual-Core MCU</strong>
+              <span class="status-chip status-safe" style="font-size: 0.65rem;">CORE PROCESSOR</span>
+            </div>
+            <p style="font-size: 0.78rem; color: var(--text-secondary);">
+              240MHz Xtensa with native 2.4GHz Wi-Fi (802.11 b/g/n) and Bluetooth 5 (LE / Mesh / Coded PHY). Runs the ad-hoc mesh protocol stack.
+            </p>
+          </div>
+
+          <div class="hardware-component-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <strong style="color: #fff;">u-blox NEO-8M GPS Module</strong>
+              <span class="status-chip" style="background: rgba(59, 130, 246, 0.2); color: #60a5fa; font-size: 0.65rem;">POSITIONING</span>
+            </div>
+            <p style="font-size: 0.78rem; color: var(--text-secondary);">
+              10Hz refresh rate with concurrent GNSS reception (GPS, GLONASS, Galileo) for accurate vehicle velocity, heading, and coordinate fixing.
+            </p>
+          </div>
+
+          <div class="hardware-component-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <strong style="color: #fff;">MPU-6050 6-Axis IMU</strong>
+              <span class="status-chip status-danger" style="font-size: 0.65rem;">CRASH SENSOR</span>
+            </div>
+            <p style="font-size: 0.78rem; color: var(--text-secondary);">
+              Triple-axis accelerometer + gyroscope detecting sudden deceleration (&gt;0.6g) for emergency braking and rollovers/impacts.
+            </p>
+          </div>
+
+          <div class="hardware-component-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <strong style="color: #fff;">MCP2515 CAN-Bus Controller</strong>
+              <span class="status-chip" style="background: rgba(168, 85, 247, 0.2); color: #c084fc; font-size: 0.65rem;">VEHICLE BUS</span>
+            </div>
+            <p style="font-size: 0.78rem; color: var(--text-secondary);">
+              Intersects OBD-II diagnostics port to read real-time wheel speeds, steering angle, ABS trigger state, and brake pedal depression.
+            </p>
+          </div>
+
+          <div class="hardware-component-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <strong style="color: #fff;">Piezo Buzzer &amp; OLED HUD</strong>
+              <span class="status-chip status-warning" style="font-size: 0.65rem;">COCKPIT UI</span>
+            </div>
+            <p style="font-size: 0.78rem; color: var(--text-secondary);">
+              85dB acoustic warning alarm and 1.3" I2C OLED dashboard display delivering driver alerts within 15 milliseconds of packet arrival.
+            </p>
+          </div>
+
+          <div class="hardware-component-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <strong style="color: #fff;">12V to 5V DC Buck Regulator</strong>
+              <span class="status-chip status-safe" style="font-size: 0.65rem;">POWER UNIT</span>
+            </div>
+            <p style="font-size: 0.78rem; color: var(--text-secondary);">
+              Automotive transient voltage suppression protecting the microcontroller from car alternator voltage spikes (load dump protection).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 15: Phone-Off / Background Operation Breakdown -->
+      <div class="glass-panel">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span class="icon">📱</span> HARDWARE / BACKGROUND MODE – FUTURE IMPLEMENTATION
+          </div>
+          <span class="status-chip" style="background: rgba(148, 163, 184, 0.2); color: #cbd5e1;">ENGINEERING CLARIFICATION</span>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px;">
+          <strong>Technical Note on Browser Security &amp; Mobile OS Policies:</strong> Standard mobile web browsers (Safari, Chrome) pause JavaScript execution when the smartphone screen is locked or turned off to save battery.
+        </p>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+          For commercial automotive reliability, <strong>V2V Rescue Link operates through a dedicated vehicle On-Board Unit (OBU)</strong> powered by the vehicle's 12V battery, or as a native Android/iOS background BLE peripheral service with wake-on-packet capability. This ensures emergency warnings are transmitted and received 24/7—even when the driver's phone is switched off.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- =============================================================
+         9. COMPARISON TABLE & ABOUT PROJECT (Features 17, 25, 26)
+         ============================================================= -->
+    <section id="viewAbout" class="app-view">
+      <!-- Feature 17: Unique Features Comparison Table -->
+      <div class="glass-panel" style="margin-bottom: 24px;">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span class="icon">⚖️</span> WHY V2V RESCUE LINK IS DIFFERENT (COMPARISON TABLE)
+          </div>
+          <span class="status-chip status-safe">COMPETITIVE ANALYSIS</span>
+        </div>
+
+        <div class="comparison-table-card">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Feature / Capability</th>
+                <th class="col-our-system">V2V RESCUE LINK (OUR SYSTEM)</th>
+                <th>Cellular GPS (Google Maps / Waze)</th>
+                <th>Satellite SOS (Apple / Garmin)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Vehicle-to-Vehicle Direct</strong></td>
+                <td class="col-our-system">✅ YES (Peer-to-Peer)</td>
+                <td>❌ NO (Requires Central Cloud)</td>
+                <td>❌ NO (To Satellite Ground Station)</td>
+              </tr>
+              <tr>
+                <td><strong>Bluetooth 5.4 Mesh</strong></td>
+                <td class="col-our-system">✅ YES (Low-power ad-hoc)</td>
+                <td>❌ NO</td>
+                <td>❌ NO</td>
+              </tr>
+              <tr>
+                <td><strong>Wi-Fi Direct / Wi-Fi Aware</strong></td>
+                <td class="col-our-system">✅ YES (High-bandwidth NAN)</td>
+                <td>❌ NO</td>
+                <td>❌ NO</td>
+              </tr>
+              <tr>
+                <td><strong>Internet / Mobile Data Required</strong></td>
+                <td class="col-our-system" style="color: var(--status-safe); font-weight: 800;">❌ NO (100% Offline)</td>
+                <td>⚠️ YES (Fails without towers)</td>
+                <td>❌ NO (Requires open sky)</td>
+              </tr>
+              <tr>
+                <td><strong>Disaster Detection (Flood, Landslide)</strong></td>
+                <td class="col-our-system">✅ YES (Direct Sensor Broadcast)</td>
+                <td>⚠️ Delayed (User reports crowdsourced)</td>
+                <td>❌ NO</td>
+              </tr>
+              <tr>
+                <td><strong>Real-Time Emergency Alerts</strong></td>
+                <td class="col-our-system">✅ YES (&lt;15ms Latency)</td>
+                <td>⚠️ High Latency (1 - 5 mins)</td>
+                <td>⚠️ Very Slow (30s - 2 mins)</td>
+              </tr>
+              <tr>
+                <td><strong>Multi-Hop Message Relay</strong></td>
+                <td class="col-our-system">✅ YES (V01 → V02 → V03 → V04)</td>
+                <td>❌ NO</td>
+                <td>❌ NO</td>
+              </tr>
+              <tr>
+                <td><strong>Low-Power Operation Mode</strong></td>
+                <td class="col-our-system">✅ YES (Adaptive 10% duty cycle)</td>
+                <td>❌ High Cellular Drain</td>
+                <td>❌ High Satellite Tx Drain</td>
+              </tr>
+              <tr>
+                <td><strong>Continuous Monitoring &amp; Collision TTC</strong></td>
+                <td class="col-our-system">✅ YES (10Hz Local Scanning)</td>
+                <td>❌ NO</td>
+                <td>❌ NO</td>
+              </tr>
+              <tr>
+                <td><strong>Offline Alternate-Route Warning</strong></td>
+                <td class="col-our-system">✅ YES (Local Vector Routing)</td>
+                <td>⚠️ Requires Cloud Map Server</td>
+                <td>❌ NO</td>
+              </tr>
+              <tr>
+                <td><strong>Works in Tunnels &amp; Mountain Passes</strong></td>
+                <td class="col-our-system">✅ YES (Direct RF unaffected)</td>
+                <td>❌ Complete Signal Blackout</td>
+                <td>❌ Fails (No Line-of-Sight to Sky)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Feature 25: About Project & Hackathon Summary -->
+      <div class="glass-panel">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span class="icon">ℹ️</span> ABOUT THE PROJECT
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-cyan);">
+            COLLEGE / HACKATHON INNOVATION ENTRY
+          </span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+          <div>
+            <h4 style="color: var(--accent-cyan); font-family: var(--font-display); font-size: 0.95rem; margin-bottom: 6px;">
+              PROJECT NAME &amp; TAGLINE
+            </h4>
+            <div style="font-size: 1.1rem; font-weight: 800; color: #fff; margin-bottom: 4px;">
+              V2V RESCUE LINK
+            </div>
+            <p style="font-size: 0.85rem; color: #38bdf8; font-style: italic; margin-bottom: 14px;">
+              “Smart Vehicles. Direct Communication. Safer Roads.”
+            </p>
+
+            <h4 style="color: var(--status-danger); font-family: var(--font-display); font-size: 0.95rem; margin-bottom: 6px;">
+              THE PROBLEM
+            </h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+              Vehicles lose cellular and GPS connectivity during natural disasters, mountain landslides, remote highway travel, and power grid failures. When a sudden crash happens around a blind curve, trailing cars have zero advance warning, triggering deadly pileups.
+            </p>
+          </div>
+
+          <div>
+            <h4 style="color: var(--status-safe); font-family: var(--font-display); font-size: 0.95rem; margin-bottom: 6px;">
+              THE SOLUTION
+            </h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 14px;">
+              Enable nearby vehicles to exchange safety information directly using peer-to-peer wireless technologies (Wi-Fi Direct, Wi-Fi Aware NAN, and Bluetooth 5.4 Mesh) without depending on cellular towers, mobile data plans, or cloud servers.
+            </p>
+
+            <h4 style="color: #a855f7; font-family: var(--font-display); font-size: 0.95rem; margin-bottom: 6px;">
+              THE ULTIMATE GOAL
+            </h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+              Provide a resilient, decentralized safety communication shield that helps vehicles warn each other about sudden braking, accidents, roadblocks, and environmental disasters in under 15 milliseconds.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =============================================================
+       FEATURE 27: FINAL DEMONSTRATION SCENARIO MODAL
+       ============================================================= -->
+  <div id="demoScenarioModal" class="demo-scenario-modal hidden">
+    <div class="demo-modal-header">
+      <span id="demoStepCounter" class="demo-step-badge">STEP 1 OF 6</span>
+      <button id="demoCloseBtn" class="btn-header-tool" style="font-size: 0.7rem;">✕ Exit Demo</button>
+    </div>
+    <h3 id="demoStepTitle" class="demo-modal-title">Stage 1: Nominal Highway Convoy</h3>
+    <p id="demoStepDesc" class="demo-modal-desc">
+      Vehicles V01, V02, V03, and V04 are cruising on the highway at 72 km/h. Direct peer-to-peer radio beacons establish local mesh neighborhood. Internet required: NO.
+    </p>
+    <div class="demo-modal-footer">
+      <button id="demoNextStepBtn" class="btn-primary">
+        Next: Trigger Hazard Ahead
+      </button>
+    </div>
+  </div>
+
+
+  <!-- =============================================================
+       FEATURE 27: BIG FINAL CELEBRATORY SUCCESS BANNER
+       ============================================================= -->
+  <div id="demoFinalSuccessBanner" class="demo-success-banner hidden">
+    <div style="font-size: 2.8rem; margin-bottom: 8px;">🎉 🏆 📡</div>
+    <h2 style="font-family: var(--font-display); font-size: 1.5rem; color: #fff; margin-bottom: 8px;">
+      V2V PROPAGATION DEMONSTRATION SUCCESSFUL!
+    </h2>
+    <p style="font-size: 1.05rem; color: #34d399; font-weight: 700; margin-bottom: 16px;">
+      “Emergency information successfully propagated through nearby vehicles.”
+    </p>
+
+    <div class="success-badges-row">
+      <span class="key-innovation-badge" style="border-color: #ff2a5f; color: #ff859d;">🚨 ACCIDENT AHEAD</span>
+      <span class="key-innovation-badge" style="border-color: #f59e0b; color: #fde68a;">⚠️ ROAD BLOCKED</span>
+      <span class="key-innovation-badge" style="border-color: #00f0ff; color: #a5f3fc;">📡 MULTI-HOP V2V ACTIVE</span>
+      <span class="key-innovation-badge" style="border-color: #10b981; color: #6ee7b7;">🌐 INTERNET NOT REQUIRED</span>
+      <span class="key-innovation-badge" style="border-color: #a855f7; color: #e9d5ff;">🔄 ALTERNATE ROUTE AVAILABLE</span>
+    </div>
+
+    <p style="font-size: 0.85rem; color: var(--text-secondary); max-width: 540px; margin: 0 auto 20px; line-height: 1.5;">
+      Core Innovation Proven: <strong>Vehicles warned other vehicles directly across 3 autonomous hops without any cellular tower, SIM card, or cloud server connectivity.</strong>
+    </p>
+
+    <button id="closeSuccessBanner" class="btn-primary" style="margin: 0 auto;">
+      ✓ Close &amp; Explore Dashboard
+    </button>
+  </div>
+
+
+  <!-- Scripts -->
+  <script src="js/audio.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/multihop.js"></script>
+  <script src="js/emergency.js"></script>
+  <script src="js/simulation.js"></script>
+  <script src="js/telemetry.js"></script>
+  <script src="js/route.js"></script>
+  <script src="js/demoScenario.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

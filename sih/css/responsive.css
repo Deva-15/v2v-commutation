@@ -1,0 +1,135 @@
+/**
+ * V2V Rescue Link - Responsive Breakpoints & Mobile Optimization
+ */
+
+@media (max-width: 1080px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .route-analysis-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .protocol-spec-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    padding: 16px 12px;
+  }
+
+  .header-top-bar {
+    padding: 8px 12px;
+  }
+
+  .primary-nav-bar {
+    padding: 0 12px;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(8, 14, 26, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: stretch;
+    border-bottom: 1px solid var(--bg-glass-border);
+    padding: 10px 0;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+  }
+
+  .nav-links.mobile-open {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta-group .btn-primary,
+  .hero-cta-group .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .peer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .no-internet-banner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .no-internet-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .arch-diagram-flow {
+    flex-direction: column;
+  }
+
+  .arch-flow-arrow {
+    transform: rotate(90deg);
+    margin: 4px 0;
+  }
+
+  .sim-controls-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sim-btn-group {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .demo-scenario-modal {
+    width: 95%;
+    bottom: 15px;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .speed-val {
+    font-size: 3.2rem;
+  }
+
+  .disasters-catalog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .emergency-triggers-grid {
+    grid-template-columns: 1fr;
+  }
+}

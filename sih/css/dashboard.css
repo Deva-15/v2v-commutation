@@ -1,0 +1,623 @@
+/**
+ * V2V Rescue Link - Dashboard, Telemetry & Cockpit Instrumentation Styles
+ */
+
+/* Landing Page Hero */
+.hero-section {
+  padding: 40px 0 20px;
+  text-align: center;
+  position: relative;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  padding: 6px 16px;
+  border-radius: 30px;
+  color: var(--accent-cyan);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: 3.2rem;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+  background: linear-gradient(135deg, #ffffff 40%, #00f0ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #38bdf8;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.hero-desc {
+  max-width: 760px;
+  margin: 0 auto 30px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
+}
+
+.hero-canvas-card {
+  margin: 0 auto 30px;
+  max-width: 900px;
+  background: rgba(10, 16, 28, 0.8);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 240, 255, 0.1);
+}
+
+.hero-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.metric-highlight-card {
+  background: rgba(13, 22, 40, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  text-align: left;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.metric-highlight-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-cyan);
+}
+
+.metric-highlight-val {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--accent-cyan);
+  margin-bottom: 4px;
+}
+
+.metric-highlight-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.metric-highlight-sub {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+}
+
+/* Feature 3: NO INTERNET REQUIRED Prominent Status Panel */
+.no-internet-banner {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(6, 78, 59, 0.2));
+  border: 2px solid rgba(16, 185, 129, 0.5);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  margin-bottom: 28px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  align-items: center;
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.15);
+}
+
+.no-internet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.no-internet-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.no-internet-item.neg {
+  color: #f87171;
+  border-left: 3px solid #ef4444;
+}
+
+.no-internet-item.pos {
+  color: #34d399;
+  border-left: 3px solid #10b981;
+}
+
+/* Cockpit HUD & Telemetry Layout */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 24px;
+}
+
+.cockpit-instrument-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Speedometer & Primary Gauge */
+.digital-gauge-card {
+  background: radial-gradient(circle at center, rgba(14, 28, 54, 0.9), rgba(8, 14, 26, 0.95));
+  border: 1px solid var(--accent-cyan-glow);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  text-align: center;
+  box-shadow: var(--shadow-neon);
+  position: relative;
+}
+
+.speed-readout {
+  margin: 10px 0;
+}
+
+.speed-val {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+  text-shadow: 0 0 20px var(--accent-cyan);
+}
+
+.speed-unit {
+  font-size: 0.85rem;
+  color: var(--accent-cyan);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.vehicle-status-badge-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.status-chip {
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+}
+
+.status-safe {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid var(--status-safe);
+  color: var(--status-safe);
+}
+
+.status-warning {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid var(--status-warning);
+  color: var(--status-warning);
+}
+
+.status-emergency {
+  background: rgba(255, 42, 95, 0.2);
+  border: 1px solid var(--status-danger);
+  color: var(--status-danger);
+  animation: pulseAlarm 0.8s infinite alternate;
+}
+
+@keyframes pulseAlarm {
+  from { box-shadow: 0 0 5px var(--status-danger); }
+  to { box-shadow: 0 0 20px var(--status-danger); }
+}
+
+/* Secondary Instruments */
+.instrument-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.instrument-tile {
+  background: rgba(13, 22, 40, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+}
+
+.tile-label {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.tile-value {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.battery-bar-track {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 6px;
+}
+
+.battery-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981, #00f0ff);
+  width: 87%;
+  border-radius: 3px;
+}
+
+/* Dynamic V2V Chain Banner */
+.v2v-chain-banner {
+  background: rgba(13, 22, 40, 0.8);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  border-radius: var(--radius-md);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.v2v-chain-nodes {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mesh-arrow {
+  color: var(--accent-cyan);
+  font-weight: 900;
+  animation: glowArrow 1.5s infinite alternate;
+}
+
+@keyframes glowArrow {
+  from { opacity: 0.4; }
+  to { opacity: 1; text-shadow: 0 0 10px var(--accent-cyan); }
+}
+
+/* Neighboring Peers Grid */
+.nearby-peers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.peer-card {
+  background: rgba(13, 22, 40, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  transition: all 0.2s ease;
+}
+
+.peer-card.connected {
+  border-left: 4px solid var(--accent-cyan);
+}
+
+.peer-card.disconnected {
+  border-left: 4px solid var(--text-muted);
+  opacity: 0.6;
+}
+
+.peer-card.peer-emergency {
+  border-left: 4px solid var(--status-danger);
+  background: rgba(255, 42, 95, 0.08);
+  box-shadow: 0 0 15px rgba(255, 42, 95, 0.2);
+}
+
+.peer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.peer-id-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #fff;
+}
+
+.peer-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.peer-link-status {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.peer-link-status.active {
+  color: var(--accent-cyan);
+}
+
+.peer-link-status.inactive {
+  color: var(--text-muted);
+}
+
+.peer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.peer-metric .metric-label {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  display: block;
+}
+
+.peer-metric .metric-val {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.val-danger {
+  color: var(--status-danger) !important;
+}
+
+/* Collision Warning Banner (Feature 9) */
+.collision-banner {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.25), rgba(185, 28, 28, 0.35));
+  border: 2px solid #ef4444;
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 25px rgba(239, 68, 68, 0.4);
+  animation: collisionPulse 0.6s infinite alternate;
+}
+
+@keyframes collisionPulse {
+  from { border-color: #ef4444; }
+  to { border-color: #ffffff; box-shadow: 0 0 35px rgba(239, 68, 68, 0.8); }
+}
+
+.collision-banner-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.collision-banner-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #ff4d6d;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.collision-stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 12px;
+}
+
+/* Feature 11: Blind Spot Radar Container */
+.blind-spot-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+}
+
+.blind-spot-canvas-wrapper {
+  position: relative;
+  width: 240px;
+  height: 240px;
+}
+
+.blind-spot-wing-indicator {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 48px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
+}
+
+.wing-left { left: 8px; }
+.wing-right { right: 8px; }
+
+.blind-spot-wing-indicator.active {
+  background: #ff2a5f;
+  border-color: #ffffff;
+  box-shadow: 0 0 16px #ff2a5f;
+  animation: pulseAlarm 0.4s infinite alternate;
+}
+
+/* Feature 16: Message Log Console */
+.comm-log-console {
+  background: rgba(6, 11, 20, 0.95);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.comm-log-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: rgba(15, 23, 42, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.log-filters {
+  display: flex;
+  gap: 6px;
+}
+
+.log-filter-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.log-filter-btn.active {
+  background: rgba(0, 240, 255, 0.2);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  font-weight: 700;
+}
+
+.comm-log-table-container {
+  max-height: 280px;
+  overflow-y: auto;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.comm-log-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.comm-log-table th {
+  background: rgba(13, 22, 40, 0.9);
+  padding: 8px 12px;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: sticky;
+  top: 0;
+}
+
+.comm-log-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.log-row:hover {
+  background: rgba(0, 240, 255, 0.04);
+}
+
+.log-time { color: var(--text-muted); }
+.log-sender { color: var(--accent-cyan); }
+.log-arrow { color: var(--text-muted); }
+.log-receiver { color: #38bdf8; }
+.log-msg { color: #f1f5f9; }
+.log-rssi { color: var(--status-safe); }
+
+.badge-hop {
+  background: rgba(168, 85, 247, 0.2);
+  border: 1px solid #a855f7;
+  color: #c084fc;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.65rem;
+}
+
+.log-emergency {
+  background: rgba(255, 42, 95, 0.12) !important;
+}
+.log-emergency .log-msg {
+  color: #ff4d6d;
+  font-weight: 700;
+}
+
+/* Feature 17: Comparison Table */
+.comparison-table-card {
+  overflow-x: auto;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.86rem;
+}
+
+.comparison-table th {
+  padding: 14px 18px;
+  background: rgba(15, 23, 42, 0.8);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--accent-cyan);
+}
+
+.comparison-table td {
+  padding: 12px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.comparison-table tr:hover td {
+  background: rgba(0, 240, 255, 0.02);
+}
+
+.col-our-system {
+  background: rgba(0, 240, 255, 0.05);
+  font-weight: 700;
+  color: var(--accent-cyan);
+  border-left: 1px solid rgba(0, 240, 255, 0.2);
+  border-right: 1px solid rgba(0, 240, 255, 0.2);
+}
